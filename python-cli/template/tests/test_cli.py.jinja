@@ -1,0 +1,11 @@
+from {{ package_name }}.cli import build_parser, main
+
+
+def test_parser_accepts_no_arguments() -> None:
+    args = build_parser().parse_args([])
+    assert args is not None
+
+
+def test_main_returns_success(capsys) -> None:
+    assert main() == 0
+    assert "Hello from {{ project_name }}!" in capsys.readouterr().out
