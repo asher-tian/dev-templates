@@ -1,17 +1,17 @@
-# Agent instructions
+# AI 编码助手协作规范
 
-## Project conventions
+## 项目约定
 
-- Use `uv` for Python environment and dependency management. Do not install project dependencies globally.
-- Keep runtime dependencies in `[project].dependencies` and development tools in the `dev` dependency group.
-- Preserve the `src/` layout.
-- Keep `pyproject.toml` and `uv.lock` consistent; commit both.
-- Do not add dependencies unless needed; explain why when adding one.
-- Never commit `.env` files, tokens, passwords, private keys, or other secrets.
+- 使用 `uv` 管理 Python 环境和项目依赖，不要将项目依赖安装到全局 Python 环境。
+- 运行时依赖放在 `[project].dependencies`，开发工具放在 `dev` 依赖组。
+- 保持 `src/` 包布局。
+- 保持 `pyproject.toml` 与 `uv.lock` 一致，并将两者提交到 Git。
+- 只有在确有必要时才添加依赖；添加时说明原因。
+- 不要提交 `.env` 文件、访问令牌、密码、私钥或其他敏感信息。
 
-## Before finishing a change
+## 完成修改前
 
-Run:
+运行以下检查：
 
 ```bash
 uv run ruff check .
@@ -19,4 +19,4 @@ uv run ruff format --check .
 uv run pytest
 ```
 
-If a command cannot run, report the reason rather than claiming it passed.
+如果某项检查无法执行，请明确说明原因，不要声称检查已通过。
