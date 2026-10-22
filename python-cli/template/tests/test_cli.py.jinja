@@ -7,5 +7,5 @@ def test_parser_accepts_no_arguments() -> None:
 
 
 def test_main_returns_success(capsys) -> None:
-    assert main() == 0
+    assert main([]) == 0
     assert "Hello from {{ project_name }}!" in capsys.readouterr().out
