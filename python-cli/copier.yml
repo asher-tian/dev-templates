@@ -1,0 +1,26 @@
+_min_copier_version: "9.0.0"
+_subdirectory: template
+
+project_name:
+  type: str
+  help: Human-readable project name
+  default: my-cli
+
+project_slug:
+  type: str
+  help: Project distribution name (lowercase letters, numbers, and hyphens)
+  default: "{{ project_name | lower | replace(' ', '-') | replace('_', '-') }}"
+
+package_name:
+  type: str
+  help: Python import package name (letters, numbers, and underscores only)
+  default: "{{ project_slug | replace('-', '_') }}"
+
+python_version:
+  type: str
+  help: Python version required by this project
+  choices:
+    - "3.12"
+    - "3.13"
+    - "3.14"
+  default: "3.13"
