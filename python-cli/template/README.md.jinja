@@ -1,28 +1,28 @@
 # {{ project_name }}
 
-A Python CLI project generated from [dev-templates/python-cli](https://github.com/asher-tian/dev-templates/tree/main/python-cli).
+由 [dev-templates/python-cli](https://github.com/asher-tian/dev-templates/tree/main/python-cli) 模板生成的 Python 命令行项目。
 
-## Requirements
+## 环境要求
 
-- Python {{ python_version }} or a compatible version satisfying `pyproject.toml`
+- Python {{ python_version }} 或满足 `pyproject.toml` 版本约束的兼容版本
 - [uv](https://docs.astral.sh/uv/)
-- Docker Desktop and VS Code Dev Containers (optional)
+- 可选：Docker Desktop 和 VS Code Dev Containers
 
-## Setup
+## 安装项目依赖
 
 ```bash
 uv sync --all-groups
 ```
 
-## Run
+## 运行
 
 ```bash
 uv run {{ package_name }}
-# or
+# 或
 uv run python -m {{ package_name }}.cli
 ```
 
-## Checks
+## 代码检查与测试
 
 ```bash
 uv run pytest
@@ -30,8 +30,8 @@ uv run ruff check .
 uv run ruff format --check .
 ```
 
-Add runtime dependencies with `uv add <package>` and development dependencies with `uv add --dev <package>`. Commit both `pyproject.toml` and `uv.lock`.
+使用 `uv add <package>` 添加运行时依赖，使用 `uv add --dev <package>` 添加开发依赖。请将 `pyproject.toml` 和 `uv.lock` 一并提交到 Git。
 
-## Development environment
+## 开发环境
 
-The `.devcontainer/` directory provides a Linux-based VS Code development environment. Open the project in VS Code and choose **Dev Containers: Reopen in Container**.
+`.devcontainer/` 目录提供基于 Linux 的 VS Code 开发环境。在 VS Code 中打开项目，然后执行 **Dev Containers: Reopen in Container** 即可进入容器。
