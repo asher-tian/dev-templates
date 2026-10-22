@@ -1,0 +1,24 @@
+"""Command-line entry point for {{ project_name }}."""
+
+import argparse
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="{{ project_name }}")
+    parser.add_argument(
+        "--version",
+        action="version",
+        version="%(prog)s 0.1.0",
+    )
+    return parser
+
+
+def main() -> int:
+    parser = build_parser()
+    parser.parse_args()
+    print("Hello from {{ project_name }}!")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
