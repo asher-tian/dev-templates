@@ -4,8 +4,6 @@
 
 ## 内容导航
 
-- [Git 配置指南](./git-config/README.md)：配置 GitHub / Gitee SSH、GitHub Verified 签名提交，以及双平台同步。
-
 ## 模板列表
 
 - [python-cli](./python-cli/)：Python 命令行项目模板，包含 `uv`、`pytest`、Ruff、`src/` 包布局、可选的 VS Code Dev Containers，以及 GitHub Actions CI。
