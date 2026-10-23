@@ -8,31 +8,37 @@
 - 采用 `src/` 包布局。
 - 可选使用 VS Code Dev Containers。
 - 使用 GitHub Actions 自动执行 CI 检查。
-
-## Copier 官方资料
-
-- [Copier 官方文档](https://copier.readthedocs.io/)
-- [Copier 官方 GitHub 仓库](https://github.com/copier-org/copier)
+- 提供 `AGENTS.md`，让 Codex 等 AI 编码助手遵循项目约定。
 
 ## 生成项目
 
-先克隆模板仓库，再指定本地的 `python-cli` 目录：
+建议所有仓库统一放在 `~/code`。在 macOS / Linux / WSL2 中：
 
 ```bash
+mkdir -p ~/code
+cd ~/code
 git clone https://github.com/asher-tian/dev-templates.git
 copier copy ./dev-templates/python-cli ./my-cli
 ```
 
-如果仓库已克隆到其他位置，请将模板路径替换为实际路径。Copier 会交互式询问项目名称、Python 包名和 Python 版本。
+如果模板仓库已存在于 `~/code/dev-templates`，跳过 clone 即可。Windows PowerShell 原生环境请使用 `$HOME\code` 下的目录；WSL2 开发则使用 WSL2 内部的 `~/code`。
 
-生成后执行：
+Copier 会交互式询问项目名称、Python 包名和 Python 版本。
+
+## 初始化与检查
 
 ```bash
-cd my-cli
+cd ~/code/my-cli
 uv sync --all-groups
 uv run pytest
 uv run ruff check .
 uv run ruff format --check .
 ```
 
-这个模板有意保持精简。只有项目确实需要时，再添加 Redis、数据库或其他基础设施。
+模板会生成 `.python-version`，供 uv 在本机选择对应 Python 版本；Dev Container 和 GitHub Actions 也使用所选版本。
+
+## Dev Container
+
+在 VS Code 中打开项目，然后执行 **Dev Containers: Reopen in Container**。容器会按项目配置安装 Python 和 uv，再运行 `uv sync --all-groups`。
+
+`AGENTS.md` 提供项目级协作规范，但不会自动安装 Codex 或 Claude Code CLI，也不会把个人认证信息写入容器。若要在容器中运行 AI CLI，应在对应环境单独安装并按官方流程登录。
