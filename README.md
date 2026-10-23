@@ -4,7 +4,7 @@
 
 ## 内容导航
 
-- [Git 本地配置：同时使用 GitHub 和 Gitee，并保护邮箱隐私](./git-config/README.md)：按仓库目录自动使用各平台的私有提交邮箱。
+- [Git 配置指南](./git-config/README.md)：配置 GitHub / Gitee SSH、GitHub Verified 签名提交，以及双平台同步。
 
 ## 模板列表
 
