@@ -2,6 +2,10 @@
 
 用于个人开发的可复用项目模板仓库，使用 [Copier](https://copier.readthedocs.io/) 生成项目。
 
+## 内容导航
+
+- [Git 本地配置：同时使用 GitHub 和 Gitee，并保护邮箱隐私](./git-config/README.md)：按仓库目录自动使用各平台的私有提交邮箱。
+
 ## 模板列表
 
 - [python-cli](./python-cli/)：Python 命令行项目模板，包含 `uv`、`pytest`、Ruff、`src/` 包布局、可选的 VS Code Dev Containers，以及 GitHub Actions CI。
