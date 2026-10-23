@@ -16,11 +16,14 @@
 
 ## 生成项目
 
+先克隆模板仓库，再指定本地的 `python-cli` 目录：
+
 ```bash
-copier copy gh:asher-tian/dev-templates/python-cli ./my-cli
+git clone https://github.com/asher-tian/dev-templates.git
+copier copy ./dev-templates/python-cli ./my-cli
 ```
 
-Copier 会交互式询问项目名称、Python 包名和 Python 版本。
+如果仓库已克隆到其他位置，请将模板路径替换为实际路径。Copier 会交互式询问项目名称、Python 包名和 Python 版本。
 
 生成后执行：
 
