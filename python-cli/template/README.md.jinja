@@ -4,9 +4,11 @@
 
 ## 环境要求
 
-- Python {{ python_version }} 或满足 `pyproject.toml` 版本约束的兼容版本
+- Python {{ python_version }}（项目通过 `.python-version` 选择本机版本）
 - [uv](https://docs.astral.sh/uv/)
 - 可选：Docker Desktop 和 VS Code Dev Containers
+
+建议把所有项目仓库统一放在 `~/code` 下。Windows 原生 PowerShell 使用 `$HOME\code`；Windows + WSL2 开发时使用 WSL2 内部的 `~/code`。
 
 ## 安装项目依赖
 
@@ -34,4 +36,6 @@ uv run ruff format --check .
 
 ## 开发环境
 
-`.devcontainer/` 目录提供基于 Linux 的 VS Code 开发环境。在 VS Code 中打开项目，然后执行 **Dev Containers: Reopen in Container** 即可进入容器。
+`.devcontainer/` 目录提供基于 Linux 的 VS Code 开发环境。在 VS Code 中打开项目，然后执行 **Dev Containers: Reopen in Container** 即可进入容器。代码保存在项目工作区中，VS Code 会将工作区挂载进容器。
+
+项目根目录的 `AGENTS.md` 说明 AI 编码助手应如何安装依赖、运行检查和遵守项目约定。模板不会自动安装 Codex 或 Claude Code CLI，也不会写入个人认证信息；若要在容器内运行 CLI，请在该环境单独安装并按官方流程登录。
