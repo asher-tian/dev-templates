@@ -13,9 +13,14 @@
 
 ## 生成项目
 
+当前仓库包含多个模板目录，因此先克隆仓库，再将模板子目录作为本地模板路径传给 Copier：
+
 ```bash
-copier copy gh:asher-tian/dev-templates/python-cli ./my-cli
+git clone https://github.com/asher-tian/dev-templates.git
+copier copy ./dev-templates/python-cli ./my-cli
 ```
+
+如果仓库已经克隆到其他位置，将命令中的 `./dev-templates/python-cli` 替换为实际路径即可。
 
 Copier 会交互式询问项目名称、Python 包名和 Python 版本。
 
