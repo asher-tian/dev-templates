@@ -8,7 +8,7 @@
 - 采用 `src/` 包布局。
 - 可选使用 VS Code Dev Containers。
 - 使用 GitHub Actions 自动执行 CI 检查。
-- 提供 `AGENTS.md`，让 Codex 等 AI 编码助手遵循项目约定。
+- 提供 `AGENTS.md` 作为共享规范，并通过 `CLAUDE.md` 让 Claude Code 复用，避免两份规则逐渐不一致。
 
 ## 生成项目
 
