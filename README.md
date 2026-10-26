@@ -1,56 +1,31 @@
 # dev-templates
 
-用于个人开发的可复用项目模板仓库，使用 [Copier](https://copier.readthedocs.io/) 生成项目。
+个人开发项目模板集合，使用 [Copier](https://copier.readthedocs.io/) 从模板生成新项目。
 
-## 模板列表
+## 模板目录
 
-- [python-cli](./python-cli/)：Python 命令行项目模板，包含 `uv`、`pytest`、Ruff、`src/` 包布局、可选的 VS Code Dev Containers，以及 GitHub Actions CI。
+| 模板 | 适用场景 | 说明 |
+|---|---|---|
+| [python-cli](./python-cli/) | Python 命令行应用 | uv、pytest、Ruff、src 布局、可选 Dev Container、GitHub Actions CI |
 
-## 统一项目目录
+每个模板的具体参数、生成步骤、依赖安装和开发命令，请查看对应目录中的 README。
 
-新项目统一放在 `~/code` 下。macOS / Linux / WSL2：
+## 使用约定
 
-```bash
-mkdir -p ~/code
-cd ~/code
-```
+- 所有项目仓库统一放在 `~/code` 下。
+- Windows 原生环境使用 `$HOME\code`；Windows + WSL2 开发时，使用 WSL2 内部的 `~/code`。
+- 项目语言版本、依赖锁文件、容器配置和 CI 应随项目一起维护，便于在不同电脑上复现。
+- 模板只包含该类项目通用且确实需要的配置；Redis、数据库等服务按项目需要添加。
+- 项目级 AI 协作规则放在生成项目的 `AGENTS.md` 等文件中；不要将个人账号、令牌、SSH 私钥或登录缓存写进模板。
 
-Windows PowerShell 原生环境使用：
+## 新建项目
 
-```powershell
-New-Item -ItemType Directory -Force "$HOME\code" | Out-Null
-Set-Location "$HOME\code"
-```
+1. 选择上方合适的模板。
+2. 阅读该模板目录中的 README。
+3. 使用 Copier 生成项目，并按模板说明安装依赖、运行测试。
 
-Windows 原生的 `$HOME\code` 与 WSL2 内的 `~/code` 是两个不同位置。使用 WSL2 + Dev Containers 开发时，建议将项目保存在 WSL2 的 Linux 文件系统内。
+例如，Python CLI 模板的详细操作见 [python-cli/README.md](./python-cli/README.md)。
 
-## 生成项目
+## 相关仓库
 
-在 `~/code` 下克隆模板仓库，再指定模板子目录：
-
-```bash
-git clone https://github.com/asher-tian/dev-templates.git
-copier copy ./dev-templates/python-cli ./my-cli
-```
-
-如果 `dev-templates` 已经克隆到 `~/code/dev-templates`，跳过 clone，直接执行 Copier 命令即可。Windows PowerShell 可使用相同命令和对应的相对路径。
-
-Copier 会交互式询问项目名称、Python 包名和 Python 版本。
-
-生成后进入项目目录，执行检查：
-
-```bash
-cd ~/code/my-cli
-uv sync --all-groups
-uv run pytest
-uv run ruff check .
-uv run ruff format --check .
-```
-
-## 模板维护原则
-
-- 模板保持精简，只包含该类型项目真正需要的配置。
-- 只有确实需要时，才添加 Redis、PostgreSQL 等基础设施。
-- 项目依赖由 `uv` 管理，并提交 `pyproject.toml` 和 `uv.lock`。
-- 项目环境配置与源代码一起提交，便于在不同电脑上重建开发环境。
-- `AGENTS.md` 维护项目级 AI 协作规则；个人账号和认证信息不进入模板。
+- [dev-env](https://github.com/asher-tian/dev-env)：新电脑初始化、Git / SSH、开发工具与终端配置。
